@@ -1,6 +1,7 @@
 package br.com.geosus.unidade.application.service;
 
 import br.com.geosus.unidade.adapter.in.controller.dto.CadastrarUnidadeSaudeRequest;
+import br.com.geosus.unidade.domain.entity.TipoUnidadeSaude;
 import br.com.geosus.unidade.domain.entity.UnidadeSaude;
 import br.com.geosus.unidade.domain.repository.Geocodificador;
 import br.com.geosus.unidade.domain.repository.UnidadeSaudeRepository;
@@ -29,6 +30,7 @@ public class CadastrarUnidadeService {
                 .vagasDisponiveis(request.vagasDisponiveis())
                 .servicos(request.servicos())
                 .build();
+
 
         return repository.salvar(unidade);
     }

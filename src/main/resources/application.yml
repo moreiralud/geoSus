@@ -1,15 +1,19 @@
 server:
-  port: 8080
+  port: 8080  # ou 8083 se quiser evitar conflitos
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/geosus
+    url: jdbc:postgresql://postgres-unidade:5432/geosus
     username: geosus
     password: geosus
     driver-class-name: org.postgresql.Driver
 
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+
   jpa:
-#    defer-datasource-initialization: true
     hibernate:
       ddl-auto: none
     database-platform: org.hibernate.dialect.PostgreSQLDialect
