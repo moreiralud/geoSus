@@ -16,13 +16,15 @@ public class BuscarUnidadesProximasService {
 
     public List<UnidadeSaude> buscar(double latPaciente, double lngPaciente, double raioKm) {
         return repository.listarTodos().stream()
-                .filter(unidade -> {
-                    double distancia = HaversineCalculator.calcularDistanciaKm(
-                            latPaciente, lngPaciente,
-                            unidade.getLatitude(), unidade.getLongitude()
-                    );
-                    return distancia <= raioKm;
-                })
+                .filter(unidade ->
+                        unidade.getLatitude() != null &&
+                                unidade.getLongitude() != null &&
+                                HaversineCalculator.calcularDistanciaKm(
+                                        latPaciente, lngPaciente,
+                                        unidade.getLatitude(), unidade.getLongitude()
+                                ) <= raioKm
+                )
                 .toList();
+
     }
 }

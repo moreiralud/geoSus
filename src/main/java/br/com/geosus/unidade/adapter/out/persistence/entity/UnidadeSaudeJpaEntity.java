@@ -22,7 +22,9 @@ public class UnidadeSaudeJpaEntity {
 
     private String nome;
 
+
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private TipoUnidadeSaude tipo;
 
     private String endereco;
